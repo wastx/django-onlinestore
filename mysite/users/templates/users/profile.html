@@ -1,0 +1,24 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+    {% if user.profile %}
+        <div>
+            {% if user.profile.image %}
+                <img src="{{ user.profile.image.url }}">
+            {% endif %}
+            <h1>{{ user.username }}</h1>
+        </div>
+    {% else %}
+        <div>
+            <h1>Register User</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label>Upload profile image</label>
+                <input type="file" accept="image/*" name="upload" id="upload" required>
+                <label>Contact number</label>
+                <input type="text" name="number" id="number">
+                <button type="submit">Create Profile</button>
+            </form>
+        </div>
+    {% endif %}
+{% endblock content %}

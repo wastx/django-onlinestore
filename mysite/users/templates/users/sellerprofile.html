@@ -1,0 +1,15 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+<div>
+    <div>
+        <div>
+            {% if  user.profile.image %}
+                <img src="{{ seller.profile.image.url }}">
+            {% endif %}
+
+        </div>
+        <h1>{{ seller.username }}</h1>
+    </div>
+</div>
+{% endblock content %}

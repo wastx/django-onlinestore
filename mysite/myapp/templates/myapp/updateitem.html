@@ -1,0 +1,29 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+<div>
+    <h1>Update New Item</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="name">Item Name:</label>
+            <input value="{{ item.name }}" type="text" placeholder="Name..." name="name" id="name">
+        </div>
+        <div class="mb-4">
+            <label for="price">Item Price:</label>
+            <input value="{{ item.price }}" type="text" placeholder="Price..." name="price" id="price">
+        </div>
+        <div class="mb-4">
+            <label for="description">Item Description:</label>
+            <input value="{{ item.description }}" type="text" placeholder="Description..." name="description" id="description">
+        </div>
+        <div class="mb-4">
+            <label for="upload">Item Image:</label>
+            <img src="{{ item.image.url }}" alt="" srcset="" style="max-width: 200px; max-height: 200px;">
+            <input type="file" accept="image/*" name="upload" id="upload">
+        </div>
+        <button type="submit" name="Add Item" value="Add Item">Update Item</button>
+    </form>
+</div>
+
+{% endblock content %}

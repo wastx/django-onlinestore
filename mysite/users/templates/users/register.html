@@ -1,0 +1,21 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+    <div class="container py-5">
+        <h1>Register User</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label>Username</label>
+                <p>{{form.username}}</p>
+                <label>Email</label>
+                <p>{{form.email}}</p>
+                <label>Password</label>
+                <p>{{form.password1}}</p>
+                <label>Confirm Password</label>
+                <p>{{form.password2}}</p>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+{% endblock content %}

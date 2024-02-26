@@ -1,0 +1,32 @@
+{% extends "myapp/base.html" %}
+{% block content %}
+
+    <main class>
+        <div>
+            <h1>
+                <span>Эсклюзивные товары</span>
+                <span>По Супер Ценам</span>
+            </h1>
+            <p>Вы можете заказать товар из любой точки мира. Доставка включена</p>
+        </div>
+
+        <div>
+            {% for item in items %}
+                <a href="{% url 'myapp:detail' item.id %}">
+                    <img src="{{ item.image.url }}" alt="" style="max-width: 375px; max-height: 375px;">
+                    <div>
+                        <p>{{ item.name }}</p>
+                        <p>${{ item.price }}</p>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <div>
+            <span>
+                {{ page_obj }}
+            </span>
+        </div>
+</main>
+
+{% endblock content %}

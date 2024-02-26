@@ -1,0 +1,18 @@
+{% extends "myapp/base.html" %}
+{% load humanize %}
+
+{% block content %}
+
+  <div class="item-detail">
+    <img src="{{ item.image.url }}" alt="itemPhoto" style="max-width: 325px; max-height: 325px;">
+    <div>
+      <p>{{ item.name }}</p>
+      <p>${{ item.price | intcomma }}</p>
+      <p>{{ item.description }}</p>
+      <p>@{{ item.id }}</p>
+      <p>{{ item.seller.profile.contact_number }}</p>
+      <button><a href="{% url 'myapp:update_item' item.id %}">Update Item</a></button>
+      <button><a href="{% url 'myapp:delete_item' item.id %}">Delete Item</a></button>
+    </div>
+  </div>
+{% endblock content %}
